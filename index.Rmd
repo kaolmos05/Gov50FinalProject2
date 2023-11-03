@@ -1,12 +1,17 @@
 ---
 title: "Gov 50 Final Project"
-author: "Your Name Here"
+author: "Kelly Olmos"
 description: "My final project"
 output:
   distill::distill_article:
     self_contained: false
 ---
 
+```{r}
+read.csv('DefeatedSenators2020.csv')
+read.csv('OpenSenateSeat2020.csv')
+read.csv('WinningSenators.csv')
+```
 
 
 ## Project thoughts
