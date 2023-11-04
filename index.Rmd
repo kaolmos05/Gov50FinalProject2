@@ -6,6 +6,11 @@ output:
   distill::distill_article:
     self_contained: false
 ---
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
 
 ```{r}
 senators <- read.csv('DefeatedSenators2020.csv')
@@ -23,12 +28,6 @@ winningSenators
 
 I aim to explore the relationship between campaign expenditures and electoral success in federal elections. My hypothesis is that the candidate with greater campaign expenditures usually wins the election. This question has been researched before and it makes sense why a campaign that spends more is likely to win but I think this question can be further explored. It would be interesting to see if the type of campaign expenditures affects electoral success or how much money can make a difference in electoral outcomes. The explanatory variables of interest for the fundamental question I'm exploring is the campaign expenditures, measured in terms of dollars spent during a campaign cycle. The outcome variable of interest is whether or not the candidate won their election. If the candidate with the campaign that spends more wins more often than not, it would provide support for my hypothesis. The pattern that would disprove or at the very least not support my hypothesis is if on average the campaign with the greatest expenditures does not win because it would indicate that spending doesn't matter or if the opposite occurs where the campaign that spends the least wins would not provide evidence to support my hypothesis. 
 
-```{r}
-library(tidyverse)
-library(dplyr)
-library(ggplot2)
-```
-
 
 ```{r}
 SenatorRaces <- senators |>
@@ -45,6 +44,7 @@ ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
   ) 
 
 ```
+
 ```{r eval=FALSE}
 #figure out how to present the data in a cleaner way
 Senators_plot <- winningSenators |>
