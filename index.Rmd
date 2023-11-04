@@ -15,14 +15,6 @@ library(ggplot2)
 ```{r}
 senators <- read.csv('DefeatedSenators2020.csv')
 ```
-```{r eval = FALSE}
-openSeats <- read.csv('OpenSenateSeat2020.csv')
-winningSenators <- read.csv('WinningSenators.csv')
-#note for future: I don't think I titled all the files correctly
-winningSenators
-```
-
-
 
 ## Project thoughts
 
@@ -40,9 +32,15 @@ ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
     x = "State",
     y = "Campaign Expenditures",
     fill = "Candidate",
-    caption = "Note: This graph does not present data for all Senate races in 2020"
+    caption = "Defeated Senate Incumbents, 2019-2020"
   ) 
 
+```
+```{r eval = FALSE}
+openSeats <- read.csv('OpenSenateSeat2020.csv')
+winningSenators <- read.csv('WinningSenators.csv')
+#note for future: I don't think I titled all the files correctly
+winningSenators
 ```
 
 ```{r eval=FALSE}

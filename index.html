@@ -1519,113 +1519,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>houseRaces</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'DefeatedSenators2020.csv'</span><span class='op'>)</span></span>
-<span><span class='va'>openSeats</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'OpenSenateSeat2020.csv'</span><span class='op'>)</span></span>
-<span><span class='va'>winningSenators</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'WinningSenators.csv'</span><span class='op'>)</span></span>
-<span><span class='co'>#note for future: I don't think I titled all the files correctly</span></span>
-<span><span class='va'>winningSenators</span></span></code></pre>
-</div>
-<pre><code>   District               Winner Winner.Spent
-1      RIS2            Jack Reed     $3905792
-2      ARS1           Tom Cotton     $6525299
-3      ORS1         Jeff Merkley     $8024629
-4      NES2            Ben Sasse     $4939899
-5      ILS1          Dick Durbin     $9975150
-6      NJS2          Cory Booker    $10178479
-7      MAS2            Ed Markey    $14343117
-8      DES2          Chris Coons     $5866709
-9      SDS2          Mike Rounds     $3059427
-10     NHS2       Jeanne Shaheen    $18055622
-11     LAS1         Bill Cassidy    $10212765
-12     VAS2          Mark Warner    $16717182
-13     OKS2       James M Inhofe     $5413098
-14     MNS1           Tina Smith    $15657763
-15     IDS1        James E Risch     $2174467
-16     WVS2 Shelley Moore Capito     $3904543
-17     TXS1          John Cornyn    $36106833
-18     MIS1          Gary Peters    $49747994
-19     SCS2       Lindsey Graham    $97355401
-20     MTS2        Steven Daines    $33435122
-21     KYS1      Mitch McConnell    $57708950
-22     AKS1         Dan Sullivan     $9886229
-23     IAS2           Joni Ernst    $29470595
-24     MES2        Susan Collins    $29433600
-25     NCS1          Thom Tillis    $24737348
-26     MSS1     Cindy Hyde-Smith     $3192011
-   Secong.Highest.Vote.Getter Runner.Up.Spent
-1                Allen Waters          $21944
-2    Ricky Dale Harrington Jr          $64036
-3              Jo Rae Perkins         $122048
-4               Chris Janicek         $126459
-5                 Mark Curran         $352282
-6                 Rikin Mehta         $586153
-7              Kevin O&#39;Connor         $874733
-8               Lauren Witzke         $465316
-9                  Dan Ahlers         $253114
-10              Corky Messner        $3844919
-11             Adrian Perkins        $2550054
-12                Daniel Gade        $4863920
-13               Abby Broyles        $2037262
-14                Jason Lewis        $6716094
-15            Paulette Jordan        $1062172
-16      Paula Jean Swearengin        $1979560
-17                   MJ Hegar       $28867738
-18                 John James       $46131244
-19             Jaime Harrison      $129767700
-20              Steve Bullock       $47567780
-21                Amy McGrath       $90407685
-22                   Al Gross       $19234449
-23         Theresa Greenfield       $55321649
-24                Sara Gideon       $59685282
-25             Cal Cunningham       $50873245
-26                  Mike Espy       $12285320
-                         Ratio
-1               More than 10:1
-2               More than 10:1
-3               More than 10:1
-4               More than 10:1
-5               More than 10:1
-6               More than 10:1
-7               More than 10:1
-8               More than 10:1
-9               More than 10:1
-10 More than 2:1 and Up to 5:1
-11 More than 2:1 and Up to 5:1
-12 More than 2:1 and Up to 5:1
-13 More than 2:1 and Up to 5:1
-14 More than 2:1 and Up to 5:1
-15                   Up to 2:1
-16                   Up to 2:1
-17                   Up to 2:1
-18                   Up to 2:1
-19      Outspent less than 2:1
-20      Outspent less than 2:1
-21      Outspent less than 2:1
-22      Outspent less than 2:1
-23      Outspent less than 2:1
-24         Outspent 2:1 to 5:1
-25         Outspent 2:1 to 5:1
-26         Outspent 2:1 to 5:1</code></pre>
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>houseRaces</span></span></code></pre>
-</div>
-<pre><code>  District            Winner Winner.Spent Secong.Highest.Vote.Getter
-1     GAS1        Jon Ossoff   $120775388               David Perdue
-2     AZS1        Mark Kelly    $97264106             Martha McSally
-3     COS2 John Hickenlooper    $40507415               Cory Gardner
-4     GAS2   Raphael Warnock   $101515487             Kelly Loeffler
-5     ALS1  Tommy Tuberville     $8128893                 Doug Jones
-  Runner.Up.Spent               Ratio
-1       $73131408           Up to 2:1
-2       $65641436           Up to 2:1
-3       $27283560           Up to 2:1
-4       $70879780           Up to 2:1
-5       $32205161 Outspent 2:1 to 5:1</code></pre>
-</div>
-<h2 id="project-thoughts">Project thoughts</h2>
-<p>I aim to explore the relationship between campaign expenditures and electoral success in federal elections. My hypothesis is that the candidate with greater campaign expenditures usually wins the election. This question has been researched before and it makes sense why a campaign that spends more is likely to win but I think this question can be further explored. It would be interesting to see if the type of campaign expenditures affects electoral success or how much money can make a difference in electoral outcomes. The explanatory variables of interest for the fundamental question I’m exploring is the campaign expenditures, measured in terms of dollars spent during a campaign cycle. The outcome variable of interest is whether or not the candidate won their election. If the candidate with the campaign that spends more wins more often than not, it would provide support for my hypothesis. The pattern that would disprove or at the very least not support my hypothesis is if on average the campaign with the greatest expenditures does not win because it would indicate that spending doesn’t matter or if the opposite occurs where the campaign that spends the least wins would not provide evidence to support my hypothesis.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
 <span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span></code></pre>
@@ -1633,23 +1526,40 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>houseElections</span> <span class='op'>&lt;-</span> <span class='va'>houseRaces</span> <span class='op'>|&gt;</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>senators</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'DefeatedSenators2020.csv'</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<h2 id="project-thoughts">Project thoughts</h2>
+<p>I aim to explore the relationship between campaign expenditures and electoral success in federal elections. My hypothesis is that the candidate with greater campaign expenditures usually wins the election. This question has been researched before and it makes sense why a campaign that spends more is likely to win but I think this question can be further explored. It would be interesting to see if the type of campaign expenditures affects electoral success or how much money can make a difference in electoral outcomes. The explanatory variables of interest for the fundamental question I’m exploring is the campaign expenditures, measured in terms of dollars spent during a campaign cycle. The outcome variable of interest is whether or not the candidate won their election. If the candidate with the campaign that spends more wins more often than not, it would provide support for my hypothesis. The pattern that would disprove or at the very least not support my hypothesis is if on average the campaign with the greatest expenditures does not win because it would indicate that spending doesn’t matter or if the opposite occurs where the campaign that spends the least wins would not provide evidence to support my hypothesis.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>SenatorRaces</span> <span class='op'>&lt;-</span> <span class='va'>senators</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>`Winner.Spent`</span>, <span class='va'>`Runner.Up.Spent`</span><span class='op'>)</span>, names_to <span class='op'>=</span> <span class='st'>"Candidate"</span>, values_to <span class='op'>=</span> <span class='st'>"Spending"</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>houseElections</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>District</span>, y <span class='op'>=</span> <span class='va'>Spending</span>, fill <span class='op'>=</span> <span class='va'>Candidate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>SenatorRaces</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>District</span>, y <span class='op'>=</span> <span class='va'>Spending</span>, fill <span class='op'>=</span> <span class='va'>Candidate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, position <span class='op'>=</span> <span class='st'>"dodge"</span>, width <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    title <span class='op'>=</span> <span class='st'>"Winner vs. Runner-Up Spending Across Districts"</span>,</span>
-<span>    x <span class='op'>=</span> <span class='st'>"District"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Spending"</span>,</span>
-<span>    fill <span class='op'>=</span> <span class='st'>"Campaign Expenditures"</span></span>
+<span>    title <span class='op'>=</span> <span class='st'>"Winner vs. Runner-Up Spending in Federal Senate Races (2020)"</span>,</span>
+<span>    x <span class='op'>=</span> <span class='st'>"State"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Campaign Expenditures"</span>,</span>
+<span>    fill <span class='op'>=</span> <span class='st'>"Candidate"</span>,</span>
+<span>    caption <span class='op'>=</span> <span class='st'>"Note: This graph does not present data for all Senate races in 2020"</span></span>
 <span>  <span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>Senators_plot</span> <span class='op'>&lt;-</span> <span class='va'>winningSenators</span> <span class='op'>|&gt;</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>openSeats</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'OpenSenateSeat2020.csv'</span><span class='op'>)</span></span>
+<span><span class='va'>winningSenators</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'WinningSenators.csv'</span><span class='op'>)</span></span>
+<span><span class='co'>#note for future: I don't think I titled all the files correctly</span></span>
+<span><span class='va'>winningSenators</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#figure out how to present the data in a cleaner way</span></span>
+<span><span class='va'>Senators_plot</span> <span class='op'>&lt;-</span> <span class='va'>winningSenators</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>`Winner.Spent`</span>, <span class='va'>`Runner.Up.Spent`</span><span class='op'>)</span>, </span>
 <span>               names_to <span class='op'>=</span> <span class='st'>"Candidate"</span>, </span>
 <span>               values_to <span class='op'>=</span> <span class='st'>"Spending"</span><span class='op'>)</span></span>
@@ -1665,7 +1575,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>  <span class='op'>)</span> </span></code></pre>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
