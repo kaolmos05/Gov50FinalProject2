@@ -9,12 +9,14 @@ output:
 
 ```{r}
 senators <- read.csv('DefeatedSenators2020.csv')
+```
+```{r eval = FALSE}
 openSeats <- read.csv('OpenSenateSeat2020.csv')
 winningSenators <- read.csv('WinningSenators.csv')
 #note for future: I don't think I titled all the files correctly
 winningSenators
-houseRaces
 ```
+
 
 
 ## Project thoughts
