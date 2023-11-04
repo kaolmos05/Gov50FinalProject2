@@ -1543,7 +1543,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <span>    x <span class='op'>=</span> <span class='st'>"State"</span>,</span>
 <span>    y <span class='op'>=</span> <span class='st'>"Campaign Expenditures"</span>,</span>
 <span>    fill <span class='op'>=</span> <span class='st'>"Candidate"</span>,</span>
-<span>    caption <span class='op'>=</span> <span class='st'>"Note: This graph does not present data for all Senate races in 2020"</span></span>
+<span>    caption <span class='op'>=</span> <span class='st'>"Defeated Senate Incumbents, 2019-2020"</span></span>
 <span>  <span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
@@ -1553,12 +1553,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>openSeats</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'OpenSenateSeat2020.csv'</span><span class='op'>)</span></span>
 <span><span class='va'>winningSenators</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>'WinningSenators.csv'</span><span class='op'>)</span></span>
 <span><span class='co'>#note for future: I don't think I titled all the files correctly</span></span>
-<span><span class='va'>winningSenators</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#figure out how to present the data in a cleaner way</span></span>
+<span><span class='va'>winningSenators</span></span>
+<span></span>
+<span><span class='co'>#figure out how to present the data in a cleaner way</span></span>
 <span><span class='va'>Senators_plot</span> <span class='op'>&lt;-</span> <span class='va'>winningSenators</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>cols <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>`Winner.Spent`</span>, <span class='va'>`Runner.Up.Spent`</span><span class='op'>)</span>, </span>
 <span>               names_to <span class='op'>=</span> <span class='st'>"Candidate"</span>, </span>

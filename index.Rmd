@@ -36,14 +36,13 @@ ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
   ) 
 
 ```
-```{r eval = FALSE}
+```{r, eval = FALSE}
+#The R code below is still a work in progress so I have set it to eval = FALSE
 openSeats <- read.csv('OpenSenateSeat2020.csv')
 winningSenators <- read.csv('WinningSenators.csv')
 #note for future: I don't think I titled all the files correctly
 winningSenators
-```
 
-```{r eval=FALSE}
 #figure out how to present the data in a cleaner way
 Senators_plot <- winningSenators |>
   pivot_longer(cols = c(`Winner.Spent`, `Runner.Up.Spent`), 
