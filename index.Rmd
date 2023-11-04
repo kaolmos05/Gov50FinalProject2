@@ -8,12 +8,59 @@ output:
 ---
 
 ```{r}
-read.csv('DefeatedSenators2020.csv')
-read.csv('OpenSenateSeat2020.csv')
-read.csv('WinningSenators.csv')
+senators <- read.csv('DefeatedSenators2020.csv')
+openSeats <- read.csv('OpenSenateSeat2020.csv')
+winningSenators <- read.csv('WinningSenators.csv')
+#note for future: I don't think I titled all the files correctly
+winningSenators
+houseRaces
 ```
 
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I aim to explore the relationship between campaign expenditures and electoral success in federal elections. My hypothesis is that the candidate with greater campaign expenditures usually wins the election. This question has been researched before and it makes sense why a campaign that spends more is likely to win but I think this question can be further explored. It would be interesting to see if the type of campaign expenditures affects electoral success or how much money can make a difference in electoral outcomes. The explanatory variables of interest for the fundamental question I'm exploring is the campaign expenditures, measured in terms of dollars spent during a campaign cycle. The outcome variable of interest is whether or not the candidate won their election. If the candidate with the campaign that spends more wins more often than not, it would provide support for my hypothesis. The pattern that would disprove or at the very least not support my hypothesis is if on average the campaign with the greatest expenditures does not win because it would indicate that spending doesn't matter or if the opposite occurs where the campaign that spends the least wins would not provide evidence to support my hypothesis. 
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r}
+SenatorRaces <- senators |>
+  pivot_longer(cols = c(`Winner.Spent`, `Runner.Up.Spent`), names_to = "Candidate", values_to = "Spending")
+
+ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  labs(
+    title = "Winner vs. Runner-Up Spending in Federal Senate Races (2020)",
+    x = "State",
+    y = "Campaign Expenditures",
+    fill = "Candidate",
+    caption = "Note: This graph does not present data for all Senate races in 2020"
+  ) 
+
+```
+```{r eval=FALSE}
+#figure out how to present the data in a cleaner way
+Senators_plot <- winningSenators |>
+  pivot_longer(cols = c(`Winner.Spent`, `Runner.Up.Spent`), 
+               names_to = "Candidate", 
+               values_to = "Spending")
+
+
+ggplot(Senators_plot, aes(x = District, y = Spending, fill = Candidate)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.5) +
+  labs(
+    title = "Winner vs. Runner-Up Spending by States",
+    x = "State",
+    y = "Campaign Expenditures",
+    fill = "Candidate"
+  ) 
+```
+
+
+
+
