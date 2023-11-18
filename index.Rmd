@@ -14,6 +14,7 @@ library(ggplot2)
 
 ```{r}
 senators <- read.csv('DefeatedSenators2020.csv')
+senators
 ```
 
 ## Project thoughts
@@ -22,11 +23,18 @@ I aim to explore the relationship between campaign expenditures and electoral su
 
 
 ```{r}
-SenatorRaces <- senators |>
-  pivot_longer(cols = c(`Winner.Spent`, `Runner.Up.Spent`), names_to = "Candidate", values_to = "Spending")
+senators$Winner.Spent <- as.numeric(sub("\\$", "",senators$Winner.Spent))
+senators$Runner.Up.Spent <- as.numeric(sub("\\$", "",senators$Runner.Up.Spent))
 
+SenatorRaces <- senators |>
+  pivot_longer(cols = c(`Winner.Spent`, `Runner.Up.Spent`), names_to = "Candidate", values_to = "Spending") 
+
+#The values on my y-axis were dispayed in scientific notation. To fix the way the numbers were displayed I used the following code in #the line below from this source "https://rpubs.com/techanswers88/remove-scientific-notation-in-ggplot
+
+options(scipen = 999)
 ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
   geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  scale_fill_manual(values = c("indianred", "seagreen")) +
   labs(
     title = "Winner vs. Runner-Up Spending in Federal Senate Races (2020)",
     x = "State",
@@ -36,6 +44,8 @@ ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
   ) 
 
 ```
+The bar graph above displays the campaign expenditures by the winner and runner-up in the 2020 federal senate elections, specifically senate races where the incumbent was defeated. In 4 out of 5 of these races, the candidate that spent the most won the race. This suggests that if a candidate wants to defeat an incumbent senator, they are more likely to defeat the incumbent if their campaign makes greater expenditures.
+
 ```{r, eval = FALSE}
 #The R code below is still a work in progress so I have set it to eval = FALSE
 openSeats <- read.csv('OpenSenateSeat2020.csv')
