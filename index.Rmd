@@ -46,7 +46,6 @@ ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
 
 ```
 The bar graph above displays the campaign expenditures by the winner and runner-up in the 2020 federal senate elections, specifically senate races where the incumbent was defeated. In 4 out of 5 of these races, the candidate that spent the most won the race. This suggests that if a candidate wants to defeat an incumbent senator, they are more likely to defeat the incumbent if their campaign makes greater expenditures.
-
 ```{r, eval = TRUE}
 #The R code below is still a work in progress so I have set it to eval = FALSE
 #openSeats <- read.csv('OpenSenateSeat2020.csv')
