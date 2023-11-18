@@ -23,6 +23,7 @@ I aim to explore the relationship between campaign expenditures and electoral su
 
 
 ```{r}
+#The Winner.Spent and Runner.Up.Spent variables are characters in the original data set so I converted them to numeric variables and removed the $ in front of the original version of these variables so R can interpret them accurately as numeric variables
 senators$Winner.Spent <- as.numeric(sub("\\$", "",senators$Winner.Spent))
 senators$Runner.Up.Spent <- as.numeric(sub("\\$", "",senators$Runner.Up.Spent))
 
@@ -46,22 +47,27 @@ ggplot(SenatorRaces, aes(x = District, y = Spending, fill = Candidate)) +
 ```
 The bar graph above displays the campaign expenditures by the winner and runner-up in the 2020 federal senate elections, specifically senate races where the incumbent was defeated. In 4 out of 5 of these races, the candidate that spent the most won the race. This suggests that if a candidate wants to defeat an incumbent senator, they are more likely to defeat the incumbent if their campaign makes greater expenditures.
 
-```{r, eval = FALSE}
+```{r, eval = TRUE}
 #The R code below is still a work in progress so I have set it to eval = FALSE
-openSeats <- read.csv('OpenSenateSeat2020.csv')
+#openSeats <- read.csv('OpenSenateSeat2020.csv')
 winningSenators <- read.csv('WinningSenators.csv')
 #note for future: I don't think I titled all the files correctly
 winningSenators
 
+winningSenators$Winner.Spent <- as.numeric(sub("\\$", "",winningSenators$Winner.Spent))
+winningSenators$Runner.Up.Spent <- as.numeric(sub("\\$", "",winningSenators$Runner.Up.Spent))
+
 #figure out how to present the data in a cleaner way
 Senators_plot <- winningSenators |>
+  slice_sample(n = 8) |>
   pivot_longer(cols = c(`Winner.Spent`, `Runner.Up.Spent`), 
                names_to = "Candidate", 
                values_to = "Spending")
 
 
 ggplot(Senators_plot, aes(x = District, y = Spending, fill = Candidate)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.5) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  scale_fill_manual(values = c("indianred", "seagreen")) +
   labs(
     title = "Winner vs. Runner-Up Spending by States",
     x = "State",
@@ -69,7 +75,5 @@ ggplot(Senators_plot, aes(x = District, y = Spending, fill = Candidate)) +
     fill = "Candidate"
   ) 
 ```
-
-
 
 
